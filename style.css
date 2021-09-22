@@ -1,0 +1,28 @@
+#main-container{
+    width:1300px;
+    height: 100%;
+}
+#img{
+    float:left;
+    width:50pxpx;
+    height: 50px;
+    margin-right: 50px;
+}
+.inp{
+    float: left;
+    width:500px;
+    height: 30px;
+    margin-top: 10px;
+
+}
+#space{
+    float: left;
+    width:500px;
+
+}
+#main{
+    width:1300px;
+    height: 700px;
+    clear: both;
+    margin: auto;
+}
