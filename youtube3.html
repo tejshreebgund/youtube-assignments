@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> youtube  </title>
+    <meta content='width=device-width, initial-scale=1' name='viewport' />
+    <link rel="stylesheet" href="style.css" /> 
+  </head>
+  <body>
+    <div id="main-container">
+    
+<img src="https://w7.pngwing.com/pngs/24/227/png-transparent-youtube-logo-youtube-text-trademark-logo.png" id="img" /></section>
+<div id="space">   
+<input type="text" id="search" placeholder="Search " class="inp"id="search" /> 
+<button onclick="searchvideos()">search</button>      
+</div>                                                                                
+    </div>
+ <div id="main"></div>
+ 
+  <script>
+    let div=document.getElementById("main")
+ async function searchvideos()
+    {
+try{
+    
+    let video=document.getElementById("search").value;
+    let res=await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyBf7SzMqhK5jhLZUTqR98IpTFPsqro2yOk&maxResults=20`);
+
+    //static
+   // let res=await fetch("https://youtube.googleapis.com/youtube/v3/search?q=tesla&type=video&key=AIzaSyBf7SzMqhK5jhLZUTqR98IpTFPsqro2yOk");
+    // fetch gives only result for tesla if we use q=tesla   
+    let data=await res.json();
+    console.log(data)
+    for({id:{videoId},} of data.items ){
+        let videoframe=document.createElement("iframe");
+        videoframe.src=`https://www.youtube.com/embed/${videoId}`;
+        videoframe.allow=`fullscreen`;
+        div.appendChild(videoframe)
+    }
+     
+        
+     }
+       
+    
+catch(err){
+    console.log("err",err);
+}
+    }
+    async function searchvideoss()
+    {
+try{
+    
+    let video=document.getElementById("search").value;
+    let res=await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyBf7SzMqhK5jhLZUTqR98IpTFPsqro2yOk&maxResults=20`);
+
+    //static
+   // let res=await fetch("https://youtube.googleapis.com/youtube/v3/search?q=tesla&type=video&key=AIzaSyBf7SzMqhK5jhLZUTqR98IpTFPsqro2yOk");
+    // fetch gives only result for tesla if we use q=tesla   
+    let data=await res.json();
+    console.log(data)
+    for({id:{videoId},} of data.items ){
+        let videoframe=document.createElement("iframe");
+        videoframe.src=`https://www.youtube.com/embed/${videoId}`;
+        videoframe.allow=`fullscreen`;
+        div.appendChild(videoframe)
+    }
+     
+        
+     }
+       
+    
+catch(err){
+    console.log("err",err);
+}
+    }
+    searchvideoss();
+    </script>
+
+ </div>
+  </body>
+</html>
